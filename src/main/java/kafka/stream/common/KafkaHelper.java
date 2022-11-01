@@ -20,7 +20,7 @@ public class KafkaHelper {
 	 public final static String STATELESS_FLAT_MAP_APP_ID = "stateless_flatMap_operation";
 	 public final static String STATELESS_FLAT_MAPVALUE_APP_ID = "stateless_flatMapValues_operation";
 	 public final static String STATELESS_SELECT_KEY_APP_ID = "stateless_selectKey_operation";
-
+	 public final static String STATELESS_FOREACH_APP_ID = "stateless_foreach_operation";
 	 
 	 
 	 public static void info(String msg) {
