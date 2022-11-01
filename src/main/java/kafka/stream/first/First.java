@@ -10,7 +10,7 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Named;
 import org.apache.kafka.streams.kstream.Produced;
 
-import kafka.stream.KafkaHelper;
+import kafka.stream.common.KafkaHelper;
 public class First {
 	
     public static void main(String[] args) throws InterruptedException {

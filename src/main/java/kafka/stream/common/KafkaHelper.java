@@ -1,4 +1,4 @@
-package kafka.stream;
+package kafka.stream.common;
 
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
