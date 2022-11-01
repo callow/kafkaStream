@@ -3,6 +3,7 @@ package kafka.stream.common;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
+import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 
@@ -21,6 +22,9 @@ public class KafkaHelper {
 	 public final static String STATELESS_FLAT_MAPVALUE_APP_ID = "stateless_flatMapValues_operation";
 	 public final static String STATELESS_SELECT_KEY_APP_ID = "stateless_selectKey_operation";
 	 public final static String STATELESS_FOREACH_APP_ID = "stateless_foreach_operation";
+	 public final static String STATELESS_SPLIT_MERGE_APP_ID = "stateless_split_merge_operation";
+	 public final static String STATELESS_SINK_APP_ID = "stateless_sink_operation";
+
 	 
 	 
 	 public static void info(String msg) {
@@ -31,6 +35,9 @@ public class KafkaHelper {
         final Properties properties = new Properties();
         properties.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVER);
         properties.put(StreamsConfig.APPLICATION_ID_CONFIG, appId);
+        // 指定默认序列化的泛型
+        properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         return properties;
 	 }
 	 	 
