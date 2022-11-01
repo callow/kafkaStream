@@ -14,6 +14,8 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 
+	 public final static String STATELESS_APP_ID = "stateless_map_operation";
+	 
 	 
 	 public static void info(String msg) {
 		 System.out.println(msg);
@@ -25,7 +27,7 @@ public class KafkaHelper {
         properties.put(StreamsConfig.APPLICATION_ID_CONFIG, appId);
         return properties;
 	 }
-	 
+	 	 
 	 public static void start(KafkaStreams kafkaStreams) {
 	       CountDownLatch latch = new CountDownLatch(1);
 	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
