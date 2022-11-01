@@ -14,7 +14,8 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 
-	 public final static String STATELESS_APP_ID = "stateless_map_operation";
+	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
+	 public final static String  STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
 	 
 	 
 	 public static void info(String msg) {

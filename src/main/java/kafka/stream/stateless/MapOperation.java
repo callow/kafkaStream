@@ -17,7 +17,7 @@ import kafka.stream.common.KafkaHelper;
 public class MapOperation {
 
 	public static void main(String[] args) {
-		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_APP_ID);
+		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_MAP_APP_ID);
 		
 		StreamsBuilder builder = new StreamsBuilder();
 	    KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
