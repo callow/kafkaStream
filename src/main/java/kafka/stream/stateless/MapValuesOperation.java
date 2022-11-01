@@ -1,7 +1,5 @@
 package kafka.stream.stateless;
 
-import java.util.Properties;
-
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
@@ -22,8 +20,6 @@ public class MapValuesOperation {
 
 	public static void main(String[] args) {
 		
-		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_MAPVALUE_APP_ID);
-		
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
                 .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST));
@@ -34,6 +30,6 @@ public class MapValuesOperation {
         ks1.print(Printed.<String, String>toSysOut().withLabel("mapValues"));
         ks2.print(Printed.<String, String>toSysOut().withLabel("mapValuesWithKey"));
         
-        KafkaHelper.start(new KafkaStreams(builder.build(), properties));
+        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATELESS_MAPVALUE_APP_ID)));
 	}
 }

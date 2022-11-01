@@ -1,7 +1,5 @@
 package kafka.stream.stateless;
 
-import java.util.Properties;
-
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
@@ -16,7 +14,6 @@ import kafka.stream.common.KafkaHelper;
 public class FilterOperation {
 
 	public static void main(String[] args) {
-		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_FILTER_APP_ID);
 
 		StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
@@ -28,6 +25,6 @@ public class FilterOperation {
         ks0.filterNot((k, v) -> v.contains("kafka"), Named.as("filter-not-processor"))
                 .print(Printed.<String, String>toSysOut().withLabel("filtering-not"));
         
-        KafkaHelper.start(new KafkaStreams(builder.build(), properties));
+        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATELESS_FILTER_APP_ID)));
 	}
 }

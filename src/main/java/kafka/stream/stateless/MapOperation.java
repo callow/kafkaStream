@@ -1,7 +1,5 @@
 package kafka.stream.stateless;
 
-import java.util.Properties;
-
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.KeyValue;
@@ -17,7 +15,6 @@ import kafka.stream.common.KafkaHelper;
 public class MapOperation {
 
 	public static void main(String[] args) {
-		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_MAP_APP_ID);
 		
 		StreamsBuilder builder = new StreamsBuilder();
 	    KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
@@ -29,7 +26,7 @@ public class MapOperation {
 	    // Printed.toSysOut(), 在Stream中进行控制台输出
 	    ks1.print(Printed.<String, Integer>toSysOut().withLabel("map-operation"));
 	     
-        KafkaHelper.start(new KafkaStreams(builder.build(), properties));
+        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATELESS_MAP_APP_ID)));
 		
 	}
 }
