@@ -14,6 +14,11 @@ import org.apache.kafka.streams.kstream.Printed;
 import kafka.stream.common.KafkaHelper;
 
 public class MapValuesOperation {
+	
+	/**
+	 * 
+	 * 适用于对日志进行格式化/过滤
+	 */
 
 	public static void main(String[] args) {
 		
