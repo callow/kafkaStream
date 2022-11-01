@@ -16,6 +16,7 @@ public class KafkaHelper {
 	 
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
 	 public final static String  STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
+	 public final static String STATELESS_FILTER_APP_ID = "stateless_Filtering_operation";
 	 
 	 
 	 public static void info(String msg) {
@@ -31,7 +32,7 @@ public class KafkaHelper {
 	 	 
 	 public static void start(KafkaStreams kafkaStreams) {
 	       CountDownLatch latch = new CountDownLatch(1);
-	        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+	       Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 	        	//6. stop(graceful)
 	            kafkaStreams.close();
 	            latch.countDown();

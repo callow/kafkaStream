@@ -13,26 +13,20 @@ import org.apache.kafka.streams.kstream.Printed;
 
 import kafka.stream.common.KafkaHelper;
 
-public class MapValuesOperation {
-	
-	/**
-	 * 
-	 * 适用于对日志进行格式化/过滤,因为只对Value做了处理
-	 */
+public class FilterOperation {
 
 	public static void main(String[] args) {
-		
-		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_MAPVALUE_APP_ID);
-		
-        StreamsBuilder builder = new StreamsBuilder();
+		Properties properties = KafkaHelper.config(KafkaHelper.STATELESS_FILTER_APP_ID);
+
+		StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
                 .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST));
 
-        KStream<String, String> ks1 = ks0.mapValues(v -> v.toUpperCase(), Named.as("map-values-processor"));
-        KStream<String, String> ks2 = ks0.mapValues((k, v) -> (k + "---" + v).toUpperCase(), Named.as("map-values-withKey-processor"));
+        ks0.filter((k, v) -> v.contains("kafka"), Named.as("filter-processor"))
+                .print(Printed.<String, String>toSysOut().withLabel("filtering"));
 
-        ks1.print(Printed.<String, String>toSysOut().withLabel("mapValues"));
-        ks2.print(Printed.<String, String>toSysOut().withLabel("mapValuesWithKey"));
+        ks0.filterNot((k, v) -> v.contains("kafka"), Named.as("filter-not-processor"))
+                .print(Printed.<String, String>toSysOut().withLabel("filtering-not"));
         
         KafkaHelper.start(new KafkaStreams(builder.build(), properties));
 	}
