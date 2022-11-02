@@ -26,6 +26,9 @@ public class KafkaHelper {
 	 public final static String XMALL_TRANSACTION_PURCHASES_TOPIC = "xmall.purchases.transaction";
 	 public final static String XMALL_TRANSACTION_COFFEE_TOPIC = "xmall.coffee.transaction";
 	 public final static String XMALL_TRANSACTION_ELECT_TOPIC = "xmall.elect.transaction";
+   
+     public final static String USER_INFO_TOPIC = "user.info";  //001,Alex
+     public final static String USER_ADDRESS_TOPIC = "user.address";//001,CN
 	 
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
 	 public final static String  STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
@@ -40,6 +43,9 @@ public class KafkaHelper {
 	 public final static String STATEFUL_XMALL_APP_ID = "xmall_app_2";
 	 
 	 public final static String STATEFUL_TRANSFORM_APP_ID = "stateful_transform_operation";
+	 public final static String STATEFUL_INNER_JOIN_APP_ID = "stateful_inner_join_app";
+	 
+	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
 		        Stores.persistentKeyValueStore(STATE_STORE_NAME), Serdes.String(), Serdes.Integer());
 
