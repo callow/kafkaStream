@@ -46,6 +46,7 @@ public class KafkaHelper {
 	 public final static String STATEFUL_INNER_JOIN_APP_ID = "stateful_inner_join_app";
 	 public final static String STATEFUL_LEFT_JOIN_APP_ID = "stateful_left_join_app";
 	 public final static String STATEFUL_FULL_JOIN_APP_ID = "stateful_left_out_join_app";
+	 public final static String STATEFUL_COUNT_AGGREGATE_APP_ID = "stateful_count_aggregation_app";
 	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
@@ -79,6 +80,9 @@ public class KafkaHelper {
         properties.put(StreamsConfig.STATE_DIR_CONFIG, "D:\\kafka_2.12-3.2.1\\statestore");
         // 定义并发度，可以根据partiton数量决定
         properties.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, 3);
+        
+        //TODO 取消Group的缓存 让其立即生效 => no recommendation
+        properties.put(StreamsConfig.CACHE_MAX_BYTES_BUFFERING_CONFIG, 0);
         return properties;
 	 }
 	 	 
