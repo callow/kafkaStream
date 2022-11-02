@@ -14,7 +14,7 @@ public class SelectKeyOperation {
 
 	public static void main(String[] args) {
 		
-        StreamsBuilder builder = new StreamsBuilder();
+        StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
         builder.stream(KafkaHelper.STATELESS_SELECT_KEY_APP_ID, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
                         .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
         	// 用Value作为Key

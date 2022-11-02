@@ -14,7 +14,7 @@ import kafka.stream.common.KafkaHelper;
 public class SinkOperation {
 
 	public static void main(String[] args) {
-           StreamsBuilder builder = new StreamsBuilder();
+           StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 
 	       KStream<String, String> ks0 = builder.stream(KafkaHelper.FIRST_APP_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source-processor")
                    .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
