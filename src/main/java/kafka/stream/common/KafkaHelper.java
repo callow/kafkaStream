@@ -37,6 +37,7 @@ public class KafkaHelper {
 	 public final static String STATELESS_SPLIT_MERGE_APP_ID = "stateless_split_merge_operation";
 	 public final static String STATELESS_SINK_APP_ID = "stateless_sink_operation";
 	 public final static String STATELESS_XMALL_APP_ID = "xmall_app";
+	 public final static String STATEFUL_XMALL_APP_ID = "xmall_app_2";
 	 
 	 public final static String STATEFUL_TRANSFORM_APP_ID = "stateful_transform_operation";
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(

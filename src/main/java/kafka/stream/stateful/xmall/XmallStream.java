@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
@@ -69,6 +70,7 @@ public class XmallStream {
 	                .to(KafkaHelper.XMALL_TRANSACTION_REWARDS_TOPIC, 
 	                		Produced.with(Serdes.String(), JsonSerdes.TransactionReward()));
 		
-		
+	        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATEFUL_XMALL_APP_ID)));
+
 	}
 }
