@@ -16,10 +16,9 @@ import org.apache.kafka.streams.kstream.StreamJoined;
 
 import kafka.stream.common.KafkaHelper;
 
-public class InnerJoinOperation {
+public class LeftJoinOperation {
 
 	public static void main(String[] args) {
-		
 		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 		
 	    //<null,001,Alex>
@@ -34,12 +33,11 @@ public class InnerJoinOperation {
         //分配KEY: <001,001,CN>
         KStream<String, String> addressKS = ks1.map((k, v) -> KeyValue.pair(v.split(",")[0], v), Named.as("user-addr-transform"));
         
-        userKS.join(addressKS, 
+        userKS.leftJoin(addressKS, 
         		(left, right) -> left + "----" + right, JoinWindows.of(Duration.ofMinutes(1)),
                 StreamJoined.with(Serdes.String(), Serdes.String(), Serdes.String()))
-        .print(Printed.<String, String>toSysOut().withLabel("inner-join"));
-        
-        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATEFUL_INNER_JOIN_APP_ID)));
+        .print(Printed.<String, String>toSysOut().withLabel("left-join"));
+        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.STATEFUL_LEFT_JOIN_APP_ID)));
 
 	}
 }

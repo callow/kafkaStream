@@ -44,6 +44,8 @@ public class KafkaHelper {
 	 
 	 public final static String STATEFUL_TRANSFORM_APP_ID = "stateful_transform_operation";
 	 public final static String STATEFUL_INNER_JOIN_APP_ID = "stateful_inner_join_app";
+	 public final static String STATEFUL_LEFT_JOIN_APP_ID = "stateful_left_join_app";
+	 public final static String STATEFUL_FULL_JOIN_APP_ID = "stateful_left_out_join_app";
 	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
