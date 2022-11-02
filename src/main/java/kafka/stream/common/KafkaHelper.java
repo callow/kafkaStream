@@ -15,6 +15,13 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 
+	 public final static String XMALL_TRANSACTION_SOURCE_TOPIC = "xmall.transaction";
+	 public final static String XMALL_TRANSACTION_PATTERN_TOPIC = "xmall.pattern.transaction";
+	 public final static String XMALL_TRANSACTION_REWARDS_TOPIC = "xmall.rewards.transaction";
+	 public final static String XMALL_TRANSACTION_PURCHASES_TOPIC = "xmall.purchases.transaction";
+	 public final static String XMALL_TRANSACTION_COFFEE_TOPIC = "xmall.coffee.transaction";
+	 public final static String XMALL_TRANSACTION_ELECT_TOPIC = "xmall.elect.transaction";
+	 
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
 	 public final static String  STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
 	 public final static String STATELESS_FILTER_APP_ID = "stateless_Filtering_operation";
@@ -24,6 +31,7 @@ public class KafkaHelper {
 	 public final static String STATELESS_FOREACH_APP_ID = "stateless_foreach_operation";
 	 public final static String STATELESS_SPLIT_MERGE_APP_ID = "stateless_split_merge_operation";
 	 public final static String STATELESS_SINK_APP_ID = "stateless_sink_operation";
+	 public final static String STATELESS_XMALL_APP_ID = "xmall_app";
 
 	 
 	 
