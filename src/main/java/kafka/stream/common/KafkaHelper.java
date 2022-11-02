@@ -19,6 +19,7 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_ID = "first_streams_app_id";
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
+	 public static final String SALES_SOURCE_TOPIC = "sales";
 	 
 	 public final static String XMALL_TRANSACTION_SOURCE_TOPIC = "xmall.transaction";
 	 public final static String XMALL_TRANSACTION_PATTERN_TOPIC = "xmall.pattern.transaction";
@@ -48,7 +49,8 @@ public class KafkaHelper {
 	 public final static String STATEFUL_FULL_JOIN_APP_ID = "stateful_left_out_join_app";
 	 public final static String STATEFUL_COUNT_AGGREGATE_APP_ID = "stateful_count_aggregation_app";
 	 public final static String STATEFUL_REDUCE_AGGREGATE_APP_ID = "stateful_reduce_aggregation_app";
-	 
+	 public final static String STATEFUL_REDUCE_SALE_CHAMPION_APP_ID = "stateful_reduce_sales_champion_app5";
+
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
 		        Stores.persistentKeyValueStore(STATE_STORE_NAME), Serdes.String(), Serdes.Integer());
