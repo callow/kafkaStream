@@ -16,7 +16,7 @@ public class KafkaHelper {
 	 public final static String BOOTSTRAP_SERVER = "localhost:9092";
 	 public final static String STATE_STORE_NAME = "stateful_transform_operation";
 	 
-	 public static final String FIRST_APP_ID = "first_streams_app_id";
+	 
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 public static final String SALES_SOURCE_TOPIC = "sales";
@@ -31,8 +31,9 @@ public class KafkaHelper {
      public final static String USER_INFO_TOPIC = "user.info";  //001,Alex
      public final static String USER_ADDRESS_TOPIC = "user.address";//001,CN
 	 
+     public static final String FIRST_APP_ID = "first_streams_app_id";
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
-	 public final static String  STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
+	 public final static String STATELESS_MAPVALUE_APP_ID = "stateless_mapValues_operation";
 	 public final static String STATELESS_FILTER_APP_ID = "stateless_Filtering_operation";
 	 public final static String STATELESS_FLAT_MAP_APP_ID = "stateless_flatMap_operation";
 	 public final static String STATELESS_FLAT_MAPVALUE_APP_ID = "stateless_flatMapValues_operation";
@@ -49,7 +50,8 @@ public class KafkaHelper {
 	 public final static String STATEFUL_FULL_JOIN_APP_ID = "stateful_left_out_join_app";
 	 public final static String STATEFUL_COUNT_AGGREGATE_APP_ID = "stateful_count_aggregation_app";
 	 public final static String STATEFUL_REDUCE_AGGREGATE_APP_ID = "stateful_reduce_aggregation_app";
-	 public final static String STATEFUL_REDUCE_SALE_CHAMPION_APP_ID = "stateful_reduce_sales_champion_app5";
+	 public final static String STATEFUL_REDUCE_SALE_CHAMPION_APP_ID = "stateful_reduce_sales_champion_app";
+	 public final static String STATEFUL_AGGREDATE_SALE_CHAMPION_APP_ID = "stateful_aggregate_sales_stats_app";
 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
