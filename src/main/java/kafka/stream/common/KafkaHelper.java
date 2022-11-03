@@ -43,6 +43,7 @@ public class KafkaHelper {
 	 public final static String STATELESS_SINK_APP_ID = "stateless_sink_operation";
 	 public final static String STATELESS_XMALL_APP_ID = "xmall_app";
 	 public final static String STATEFUL_XMALL_APP_ID = "xmall_app_2";
+	 public final static String TIME_TOPIC = "time.append";
 	 
 	 public final static String STATEFUL_TRANSFORM_APP_ID = "stateful_transform_operation";
 	 public final static String STATEFUL_INNER_JOIN_APP_ID = "stateful_inner_join_app";
