@@ -57,6 +57,7 @@ public class KafkaHelper {
 	 public final static String STATEFUL_AGGREDATE_SALE_CHAMPION_APP_ID = "stateful_aggregate_sales_stats_app";
 	 
 	 public final static String WINDOW_TUMBLING_APP_ID = "window_time_tumbling";
+	 public final static String WINDOW_SLIDING_APP_ID = "window_time_sliding";
 	 public final static String WINDOW_HOPPING_APP_ID = "hopping_time_windowing";
 
 	 
