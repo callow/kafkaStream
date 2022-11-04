@@ -9,6 +9,7 @@ import kafka.stream.stateless.xmall.model.Transaction;
 import kafka.stream.stateless.xmall.model.TransactionKey;
 import kafka.stream.stateless.xmall.model.TransactionPattern;
 import kafka.stream.stateless.xmall.model.TransactionReward;
+import kafka.stream.windowing.model.NetTraffic;
 
 public class JsonSerdes {
 
@@ -68,6 +69,16 @@ public class JsonSerdes {
 
     public final static class SalesStatsWrapSerde extends WrapSerde<SalesStats> {
         private SalesStatsWrapSerde(Serializer<SalesStats> serializer, Deserializer<SalesStats> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+    
+    public static NetTrafficWrapSerde NetTrafficSerde() {
+        return new NetTrafficWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(NetTraffic.class));
+    }
+
+    public final static class NetTrafficWrapSerde extends WrapSerde<NetTraffic> {
+        private NetTrafficWrapSerde(Serializer<NetTraffic> serializer, Deserializer<NetTraffic> deserializer) {
             super(serializer, deserializer);
         }
     }

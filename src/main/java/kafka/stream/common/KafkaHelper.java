@@ -7,6 +7,7 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.processor.WallclockTimestampExtractor;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
@@ -20,6 +21,7 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 public static final String SALES_SOURCE_TOPIC = "sales";
+	 public final static String TRAFFIC_LOG_SOURCE_TOPIC = "net.traffic.logs";
 	 
 	 public final static String XMALL_TRANSACTION_SOURCE_TOPIC = "xmall.transaction";
 	 public final static String XMALL_TRANSACTION_PATTERN_TOPIC = "xmall.pattern.transaction";
@@ -53,6 +55,8 @@ public class KafkaHelper {
 	 public final static String STATEFUL_REDUCE_AGGREGATE_APP_ID = "stateful_reduce_aggregation_app";
 	 public final static String STATEFUL_REDUCE_SALE_CHAMPION_APP_ID = "stateful_reduce_sales_champion_app";
 	 public final static String STATEFUL_AGGREDATE_SALE_CHAMPION_APP_ID = "stateful_aggregate_sales_stats_app";
+	 
+	 public final static String WINDOW_TUMBLING_APP_ID = "window_time_tumbling";
 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
@@ -89,6 +93,9 @@ public class KafkaHelper {
         
         //TODO 取消Group的缓存 让其立即生效 => no recommendation
         properties.put(StreamsConfig.CACHE_MAX_BYTES_BUFFERING_CONFIG, 0);
+        
+        // windowing使用的是wall time = 系统服务器时间
+        properties.put(StreamsConfig.DEFAULT_TIMESTAMP_EXTRACTOR_CLASS_CONFIG, WallclockTimestampExtractor.class.getName());
         return properties;
 	 }
 	 	 
