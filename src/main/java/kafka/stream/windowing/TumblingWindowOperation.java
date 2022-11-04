@@ -19,6 +19,9 @@ import kafka.stream.common.KafkaHelper;
 
 public class TumblingWindowOperation {
 
+	/**
+	 * 检测网络流量，如果每分钟来10次，直接预警
+	 */
 	public static void main(String[] args) {
 		   StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
 	       builder.stream(KafkaHelper.TRAFFIC_LOG_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.NetTrafficSerde())

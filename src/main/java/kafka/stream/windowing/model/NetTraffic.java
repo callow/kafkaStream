@@ -1,7 +1,10 @@
 package kafka.stream.windowing.model;
 
 import java.util.Objects;
-
+/**
+ *  网络流量
+ *
+ */
 public class NetTraffic {
     private String page;
     private String remoteAddress;
