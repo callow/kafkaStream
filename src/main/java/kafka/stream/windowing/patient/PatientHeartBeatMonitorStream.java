@@ -48,9 +48,10 @@ public class PatientHeartBeatMonitorStream {
        .selectKey((k, v) -> k.key()); // window key不能用，因此选一个key,即patientID
 	   
        // patient 数据是从DB里面拿的，因为这个数据是静态的 不是event driven的 因此要拿所有的数据：earliest
+       // key: p001 value = {patientId: p001, patientName:aa, patientAge:20, sickRoomID: SR001}
        KTable<String, Patient> patientKTable = builder.table(KafkaHelper.PATIENT_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.PatientSerde())
                .withName("patient-source").withOffsetResetPolicy(Topology.AutoOffsetReset.EARLIEST));
-	   // 将病房信息也从DB拿出来
+	   // 将病房信息也从DB拿出来, key = SR001,  value = {sickRoomId: SR001, doctorName: songlei}
        KTable<String, SickRoom> sickRoomKTable = builder.table(KafkaHelper.SICK_ROOM_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.SickRoomSerde())
                .withName("sickroom-source").withOffsetResetPolicy(Topology.AutoOffsetReset.EARLIEST));
 	   
