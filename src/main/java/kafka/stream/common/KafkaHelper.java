@@ -59,6 +59,7 @@ public class KafkaHelper {
 	 public final static String WINDOW_TUMBLING_APP_ID = "window_time_tumbling";
 	 public final static String WINDOW_SLIDING_APP_ID = "window_time_sliding";
 	 public final static String WINDOW_HOPPING_APP_ID = "hopping_time_windowing";
+	 public final static String WINDOW_SESSION_APP_ID = "session_time_window_app";
 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
