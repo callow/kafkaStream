@@ -25,6 +25,8 @@ public class KafkaHelper {
 	 public final static String HEART_BEAT_TOPIC = "heartbeat";
 	 public final static String PATIENT_TOPIC = "patient";
 	 public final static String SICK_ROOM_TOPIC = "sickroom";
+	 //<alex,wang>
+	 public final static String USERS_SOURCE_TOPIC = "users";
 	 
 	 public final static String XMALL_TRANSACTION_SOURCE_TOPIC = "xmall.transaction";
 	 public final static String XMALL_TRANSACTION_PATTERN_TOPIC = "xmall.pattern.transaction";
@@ -65,6 +67,9 @@ public class KafkaHelper {
 	 public final static String WINDOW_SESSION_APP_ID = "session_time_window_app";
 	 public final static String WINDOW_PATIENT_APP_ID = "patient_heart_beat_monitor_app";
 
+	 public final static String KTABLE_DIRECT_APP_ID = "create_ktable_from_kstream";
+	 public final static String KTABLE_KSTREAM_APP_ID = "create_ktable_from_builder";
+	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
 		        Stores.persistentKeyValueStore(STATE_STORE_NAME), Serdes.String(), Serdes.Integer());
