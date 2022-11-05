@@ -22,6 +22,9 @@ public class KafkaHelper {
 	 public static final String FIRST_APP_TARGET_TOPIC = "output.words";
 	 public static final String SALES_SOURCE_TOPIC = "sales";
 	 public final static String TRAFFIC_LOG_SOURCE_TOPIC = "net.traffic.logs";
+	 public final static String HEART_BEAT_TOPIC = "heartbeat";
+	 public final static String PATIENT_TOPIC = "patient";
+	 public final static String SICK_ROOM_TOPIC = "sickroom";
 	 
 	 public final static String XMALL_TRANSACTION_SOURCE_TOPIC = "xmall.transaction";
 	 public final static String XMALL_TRANSACTION_PATTERN_TOPIC = "xmall.pattern.transaction";
@@ -60,6 +63,7 @@ public class KafkaHelper {
 	 public final static String WINDOW_SLIDING_APP_ID = "window_time_sliding";
 	 public final static String WINDOW_HOPPING_APP_ID = "hopping_time_windowing";
 	 public final static String WINDOW_SESSION_APP_ID = "session_time_window_app";
+	 public final static String WINDOW_PATIENT_APP_ID = "patient_heart_beat_monitor_app";
 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(

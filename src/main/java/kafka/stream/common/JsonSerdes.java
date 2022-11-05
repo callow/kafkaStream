@@ -10,6 +10,9 @@ import kafka.stream.stateless.xmall.model.TransactionKey;
 import kafka.stream.stateless.xmall.model.TransactionPattern;
 import kafka.stream.stateless.xmall.model.TransactionReward;
 import kafka.stream.windowing.model.NetTraffic;
+import kafka.stream.windowing.model.Patient;
+import kafka.stream.windowing.model.PatientWithSickRoom;
+import kafka.stream.windowing.model.SickRoom;
 
 public class JsonSerdes {
 
@@ -79,6 +82,36 @@ public class JsonSerdes {
 
     public final static class NetTrafficWrapSerde extends WrapSerde<NetTraffic> {
         private NetTrafficWrapSerde(Serializer<NetTraffic> serializer, Deserializer<NetTraffic> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+    
+    public static PatientWrapSerde PatientSerde() {
+        return new PatientWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(Patient.class));
+    }
+
+    public final static class PatientWrapSerde extends WrapSerde<Patient> {
+        private PatientWrapSerde(Serializer<Patient> serializer, Deserializer<Patient> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+
+    public static SickRoomWrapSerde SickRoomSerde() {
+        return new SickRoomWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(SickRoom.class));
+    }
+
+    public final static class SickRoomWrapSerde extends WrapSerde<SickRoom> {
+        private SickRoomWrapSerde(Serializer<SickRoom> serializer, Deserializer<SickRoom> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+
+    public static PatientWithSickRoomWrapSerde PatientWithSickRoomSerde() {
+        return new PatientWithSickRoomWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(PatientWithSickRoom.class));
+    }
+
+    public final static class PatientWithSickRoomWrapSerde extends WrapSerde<PatientWithSickRoom> {
+        private PatientWithSickRoomWrapSerde(Serializer<PatientWithSickRoom> serializer, Deserializer<PatientWithSickRoom> deserializer) {
             super(serializer, deserializer);
         }
     }
