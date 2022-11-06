@@ -37,6 +37,9 @@ public class KafkaHelper {
    
      public final static String USER_INFO_TOPIC = "user.info";  //001,Alex
      public final static String USER_ADDRESS_TOPIC = "user.address";//001,CN
+     
+     public final static String EMP_SOURCE_TOPIC = "employee";
+     public final static String EMP_TARGET_TOPIC = "employee_cloud_less_65_with_title";
 	 
      public static final String FIRST_APP_ID = "first_streams_app_id";
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
@@ -69,6 +72,7 @@ public class KafkaHelper {
 
 	 public final static String KTABLE_DIRECT_APP_ID = "create_ktable_from_kstream";
 	 public final static String KTABLE_KSTREAM_APP_ID = "create_ktable_from_builder";
+	 public final static String KTABLE_BASIC_APP_ID = "ktable_basis_operation_app";
 	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(

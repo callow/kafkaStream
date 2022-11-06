@@ -3,6 +3,8 @@ package kafka.stream.common;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.Serializer;
 
+import kafka.stream.ktable.model.Employee;
+import kafka.stream.ktable.model.EmployeeStats;
 import kafka.stream.stateful.sales.model.Sales;
 import kafka.stream.stateful.sales.model.SalesStats;
 import kafka.stream.stateless.xmall.model.Transaction;
@@ -112,6 +114,26 @@ public class JsonSerdes {
 
     public final static class PatientWithSickRoomWrapSerde extends WrapSerde<PatientWithSickRoom> {
         private PatientWithSickRoomWrapSerde(Serializer<PatientWithSickRoom> serializer, Deserializer<PatientWithSickRoom> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+    
+    public static EmployeeWrapSerde EmployeeSerde() {
+        return new EmployeeWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(Employee.class));
+    }
+
+    public final static class EmployeeWrapSerde extends WrapSerde<Employee> {
+        private EmployeeWrapSerde(Serializer<Employee> serializer, Deserializer<Employee> deserializer) {
+            super(serializer, deserializer);
+        }
+    }
+
+    public static EmployeeStatsWrapSerde EmployeeStatsSerde() {
+        return new EmployeeStatsWrapSerde(new JsonSerialization<>(), new JsonDeserialization<>(EmployeeStats.class));
+    }
+
+    public final static class EmployeeStatsWrapSerde extends WrapSerde<EmployeeStats> {
+        private EmployeeStatsWrapSerde(Serializer<EmployeeStats> serializer, Deserializer<EmployeeStats> deserializer) {
             super(serializer, deserializer);
         }
     }
