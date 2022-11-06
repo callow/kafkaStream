@@ -12,10 +12,13 @@ import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.StoreBuilder;
 import org.apache.kafka.streams.state.Stores;
 
+import kafka.stream.ktable.model.ShootStats;
+
 public class KafkaHelper {
 	
 	 public final static String BOOTSTRAP_SERVER = "localhost:9092";
 	 public final static String STATE_STORE_NAME = "stateful_transform_operation";
+     public final static String SHOOT_STATE_STORE = "shoot_state_store";
 	 
 	 
 	 public static final String FIRST_APP_SOURCE_TOPIC = "input.words";
@@ -40,6 +43,8 @@ public class KafkaHelper {
      
      public final static String EMP_SOURCE_TOPIC = "employee";
      public final static String EMP_TARGET_TOPIC = "employee_cloud_less_65_with_title";
+     public final static String SHOOT_SOURCE_TOPIC = "shoot.game";
+
 	 
      public static final String FIRST_APP_ID = "first_streams_app_id";
 	 public final static String STATELESS_MAP_APP_ID = "stateless_map_operation";
@@ -73,12 +78,16 @@ public class KafkaHelper {
 	 public final static String KTABLE_DIRECT_APP_ID = "create_ktable_from_kstream";
 	 public final static String KTABLE_KSTREAM_APP_ID = "create_ktable_from_builder";
 	 public final static String KTABLE_BASIC_APP_ID = "ktable_basis_operation_app";
+
 	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
 		        Stores.persistentKeyValueStore(STATE_STORE_NAME), Serdes.String(), Serdes.Integer());
 
-	 
+ 
+	 public static final StoreBuilder<KeyValueStore<String, ShootStats>> STRING_SHOOT_STOREBUILDER = Stores.keyValueStoreBuilder(
+             Stores.persistentKeyValueStore(SHOOT_STATE_STORE), Serdes.String(), JsonSerdes.ShootStatsSerde()
+     );
 	 
 	 public static void info(String msg) {
 		 System.out.println(msg);
@@ -86,6 +95,13 @@ public class KafkaHelper {
 	 
 	 public static StreamsBuilder streamBuilderwithoutStore() {
 		return new StreamsBuilder();
+	 }
+	 
+	 public static StreamsBuilder streamBuilderwithShootStore() {
+			StreamsBuilder builder = new StreamsBuilder();
+			builder.addStateStore(STRING_SHOOT_STOREBUILDER);
+			return builder;
+		 
 	 }
 	 
 	 public static StreamsBuilder streamBuilderwithStore() {

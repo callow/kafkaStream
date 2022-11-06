@@ -28,7 +28,7 @@ import kafka.stream.windowing.model.SickRoom;
 public class PatientHeartBeatMonitorStream {
 
 	public static void main(String[] args) {
-	   StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+	   StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 
        KStream<String, Long> heartbeatKS = builder.stream(KafkaHelper.HEART_BEAT_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("heartbeat-source")
                .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))

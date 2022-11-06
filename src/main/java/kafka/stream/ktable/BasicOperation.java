@@ -15,7 +15,7 @@ import kafka.stream.ktable.model.Employee;
 public class BasicOperation {
 
 	public static void main(String[] args) {
-		StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 		
         KTable<String, Employee> table = builder.table(KafkaHelper.EMP_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.EmployeeSerde()).withName("source")
                 .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST));

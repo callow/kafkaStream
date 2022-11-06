@@ -15,7 +15,7 @@ import kafka.stream.common.KafkaHelper;
 public class CreateKtableFromBuilder {
 
 	public static void main(String[] args) {
-		StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 		// <alex,wang>
         builder.table(KafkaHelper.USERS_SOURCE_TOPIC, 
         		Consumed.with(Serdes.String(), Serdes.String()).withName("source")

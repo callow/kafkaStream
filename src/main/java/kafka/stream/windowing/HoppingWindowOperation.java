@@ -20,7 +20,7 @@ import kafka.stream.common.KafkaHelper;
 public class HoppingWindowOperation {
 
 	public static void main(String[] args) {
-		StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 		
         builder.stream(KafkaHelper.TRAFFIC_LOG_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.NetTrafficSerde()).withName("source")
                         .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))

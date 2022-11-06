@@ -13,7 +13,7 @@ import kafka.stream.common.KafkaHelper;
 public class CreateKTableFromKStream {
 
 	public static void main(String[] args) {
-		StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
         builder.stream(KafkaHelper.USERS_SOURCE_TOPIC, Consumed.with(Serdes.String(), Serdes.String()).withName("source")
                 .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
         .toTable(Named.as("user-ktable")) // 转成Ktable

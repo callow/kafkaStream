@@ -20,7 +20,7 @@ public class ReduceAggregateOperation {
 
 	public static void main(String[] args) {
 		
-	    StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+	    StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 
 	    //<null, this is kafka streams>
         //<null, I like kafka streams>

@@ -19,7 +19,7 @@ import kafka.stream.common.KafkaHelper;
 public class SessionWindowOperation {
 
 	public static void main(String[] args) {
-        StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+        StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
         builder.stream(KafkaHelper.TRAFFIC_LOG_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.NetTrafficSerde()).withName("source")
                         .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
         .groupBy((k, v) -> v.getRemoteAddress(), Grouped.with(Serdes.String(), JsonSerdes.NetTrafficSerde()))
