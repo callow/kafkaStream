@@ -23,6 +23,7 @@ public class TransformValuesOperation {
 		KTable<String, Shoot> table = builder.table(KafkaHelper.SHOOT_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.ShootSerde()).withName("source")
                 .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST));
 
+		// 将shoot 转换成shootstat,每次shoot的变化都会触发一个shootstat更新
         table.transformValues(() -> new ValueTransformerWithKey<String, Shoot, ShootStats>() {
 
                     private KeyValueStore<String, ShootStats> keyValueStore;
