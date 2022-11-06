@@ -19,7 +19,7 @@ import kafka.stream.stateful.sales.model.SalesStats;
 public class SalesAggregateStream {
 
 	public static void main(String[] args) {
-		   StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+		   StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
 	       builder.stream(KafkaHelper.SALES_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.SalesSerde()).withName("source-processor").withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
                 .selectKey((k, v) -> v.getDepartment())
                  // 每个department放入不同的partition

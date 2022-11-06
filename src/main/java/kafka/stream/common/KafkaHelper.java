@@ -78,7 +78,7 @@ public class KafkaHelper {
 	 public final static String KTABLE_DIRECT_APP_ID = "create_ktable_from_kstream";
 	 public final static String KTABLE_KSTREAM_APP_ID = "create_ktable_from_builder";
 	 public final static String KTABLE_BASIC_APP_ID = "ktable_basis_operation_app";
-
+	 public final static String KTABLE_TRANSFORM_VALUES_APP_ID = "ktable_transform_values_app";
 	 
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(

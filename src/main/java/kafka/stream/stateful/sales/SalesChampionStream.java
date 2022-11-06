@@ -19,7 +19,7 @@ public class SalesChampionStream {
 	public static void main(String[] args) {
 		
         //accumulate
-        StreamsBuilder builder = KafkaHelper.streamBuilderwithStore();
+        StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
         builder.stream(KafkaHelper.SALES_SOURCE_TOPIC, Consumed.with(Serdes.String(), JsonSerdes.SalesSerde())
               .withName("sales-source").withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST))
               // 
