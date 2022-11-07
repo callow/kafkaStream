@@ -80,6 +80,7 @@ public class KafkaHelper {
 	 public final static String KTABLE_BASIC_APP_ID = "ktable_basis_operation_app";
 	 public final static String KTABLE_TRANSFORM_VALUES_APP_ID = "ktable_transform_values_app";
 	 public final static String KTABLE_JOIN_APP_ID = "kstream_inner_join_ktable";
+	 public final static String KTABLE_LEFT_JOIN_APP_ID = "kstream_left_join_ktable";
 
 	 
 	 
