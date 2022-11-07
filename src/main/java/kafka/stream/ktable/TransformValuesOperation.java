@@ -1,6 +1,7 @@
 package kafka.stream.ktable;
 
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
@@ -65,5 +66,8 @@ public class TransformValuesOperation {
         		.filter((k, v) -> v.getBestScore() >= 8)
         		.filterNot((k, v) -> v.getStatus().equals("FINISHED"))
                 .print(Printed.<String, ShootStats>toSysOut().withLabel("shooting-game"));
+        
+        KafkaHelper.start(new KafkaStreams(builder.build(), KafkaHelper.config(KafkaHelper.KTABLE_TRANSFORM_VALUES_APP_ID)));
+
 	}
 }
