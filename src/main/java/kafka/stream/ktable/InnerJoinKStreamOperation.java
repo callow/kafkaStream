@@ -13,7 +13,7 @@ import org.apache.kafka.streams.kstream.Printed;
 
 import kafka.stream.common.KafkaHelper;
 
-public class InnerJoinOperation {
+public class InnerJoinKStreamOperation {
 
 	public static void main(String[] args) {
 		
