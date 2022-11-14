@@ -31,7 +31,8 @@ public class ReduceOperation {
 
 		    // 通过部门name/id进行分组
 	        table.groupBy((k, v) -> KeyValue.pair(v.getDepartment(), v), Grouped.with(Serdes.String(), JsonSerdes.EmployeeSerde()))
-	                .reduce(//adder 
+	        // 对一个新employee入职本部门 只会走adder, 对一个原有员工的工资调整，会先走 subtractor删掉旧的 再走  adder  添加新记录    
+	        .reduce(//adder 
 	                        (currentAgg, newValue) -> {
 	                        	KafkaHelper.info("adder--当前已有的:" + currentAgg + " 新增的:" + newValue);
 	                            Employee employee = Employee.newBuilder(currentAgg).build();
