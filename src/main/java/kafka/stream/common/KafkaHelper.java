@@ -85,6 +85,8 @@ public class KafkaHelper {
 	 public final static String KTABLE_LEFT_JOIN_APP_ID = "kstream_left_join_ktable";
 	 public final static String KTABLE_COUNT_APP_ID = "ktable_count_aggregate_app";
 	 public final static String KTABLE_REDUCE_APP_ID = "ktable_reduce_aggregate_app";
+	 public final static String KTABLE_AGGREGATE_APP_ID = "ktable_aggregate_aggregate_app";
+
 
 	 
 	 
