@@ -16,7 +16,7 @@ import kafka.stream.common.JsonSerdes;
 import kafka.stream.common.KafkaHelper;
 import kafka.stream.ktable.model.Employee;
 
-public class CountAggregate {
+public class CountOperation {
 
 	public static void main(String[] args) {
 		StreamsBuilder builder = KafkaHelper.streamBuilderwithoutStore();
