@@ -86,9 +86,8 @@ public class KafkaHelper {
 	 public final static String KTABLE_COUNT_APP_ID = "ktable_count_aggregate_app";
 	 public final static String KTABLE_REDUCE_APP_ID = "ktable_reduce_aggregate_app";
 	 public final static String KTABLE_AGGREGATE_APP_ID = "ktable_aggregate_aggregate_app";
-
-
 	 
+	 public final static String GLOBAL_KTABLE_APP_ID = "global_ktable_creation_app";
 	 
 	 public static final StoreBuilder<KeyValueStore<String, Integer>> STRING_INT_STOREBUILDER = Stores.keyValueStoreBuilder(
 		        Stores.persistentKeyValueStore(STATE_STORE_NAME), Serdes.String(), Serdes.Integer());
